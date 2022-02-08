@@ -6,10 +6,7 @@ tags:
     - Paper
     - Recommendation System
 use_math: true
-comments: true
-sitemap :
-  changefreq : daily
-  priority : 1.0
+
 ---
 
 
@@ -17,11 +14,10 @@ sitemap :
 ```
 🧠 2017년 WWW에 발표된 'Neural Collaborative Filtering' 논문 요약 정리 및 코드 구현입니다.
 ```
-[[WWW 2017] Neural Collaborative Filtering](https://arxiv.org/abs/1708.05031)
-[[WWW 2017] Neural Collaborative Filtering](https://github.com/IkGyu-Lee/NCF)
+[[WWW 2017] Neural Collaborative Filtering Paper](https://arxiv.org/abs/1708.05031)
+[NCF repository](https://github.com/IkGyu-Lee/NCF)
 
 
-</aside>
 
 # 1. Abstract & Introduction
 
