@@ -11,12 +11,9 @@ use_math: true
 
 
 
-```
-🧠 2017년 WWW에 발표된 'Neural Collaborative Filtering' 논문 요약 정리 및 코드 구현입니다.
-```
-[[WWW 2017] Neural Collaborative Filtering Paper](https://arxiv.org/abs/1708.05031)
-
-[NCF repository](https://github.com/IkGyu-Lee/NCF)
+> 🧠 2017년 WWW에 발표된 'Neural Collaborative Filtering' 논문 요약 정리 및 코드 구현입니다.
+[Neural Collaborative Filtering Paper](https://arxiv.org/abs/1708.05031)
+[NCF Repository](https://github.com/IkGyu-Lee/NCF)
 
 
 
@@ -26,7 +23,7 @@ use_math: true
 >
 >
 > To supercharge NCF modelling with non-linearities, we propose to leverage a multi-layer perceptron to learn the user–item interaction function
->
+
 - MF의 내적을 대체하는 용도로 Neural Architecture을 제안한다.
 - supercharge을 위해 MLP를 활용한다.
 
@@ -34,11 +31,11 @@ use_math: true
 >
 >
 > The inner product, which simply combines the multiplication of latent features linearly, may not be sufficient to capture the complex structure of user interaction data.
->
+
 - MF를 개선시키기 위해 다양한 논문들이 나왔지만, MF가 사용하는 내적의 특성상 단순한 선택으로 성능을 저해시키며, 복잡한 구조에 충족되기 어렵다.
 
 > We focus on [implicit feedback](https://www.notion.so/Explicit-vs-Implicit-Feedback-Data-9b2eac5db6ee442ba75d81e17fd47828)
->
+
 - 해당 논문은 user가 직접(explicit) 평가하는 data가 아닌, implicit data에 중점을 둔다.
 
 > We present a neural network architecture to model latent features of users and items and devise a general framework NCF for collaborative filtering based on neural networks.
@@ -47,35 +44,46 @@ use_math: true
 > We show that MF can be interpreted as a specialization of NCF and utilize a multi-layer perceptron to endow NCF modelling with a high level of non-linearities.
 >
 > We perform extensive experiments on two real-world datasets to demonstrate the effectiveness of our NCF approaches and the promise of deep learning for collaborative filtering.
->
+
 - 3가지 main contributions
 
 # 2. Preliminaries
 
 ## 2.1 Learning from Implicit Data
-
-![Untitled](/images/2022/NCF/t0.png)
+<div class="center">
+  <figure>
+    <a href="/images/2022/NCF/t0.png"><img src="/images/2022/NCF/t0.png" width="600"  ></a>
+  </figure>
+</div>
 
 - user's implicit feedback이기 때문에 explicit preference를 나타내지 않는다. 따라서 $y_{u,i} = 0$ 은 user와 item간의 interaction이 없다는 것을 의미한다.
 
 > Moving one step forward, our NCF framework parameterizes the interaction function f using neural networks to estimate ˆyui. As such, it naturally supports both pointwise and pairwise learning.
->
+
 - 본 논문에서는 NCF의 $\theta$를 학습하는데 [pointwise learning, pairwise learning](https://www.notion.so/Pointwise-vs-Pairwise-vs-Listwise-8661583de4f7418fb1914f96d2b66250) 2가지 방법 모두 다 사용하고자 한다.
 
 ## 2.2 Matrix Factorization
 
-![Untitled](/images/2022/NCF/t1.png)
+<div class="center">
+  <figure>
+    <a href="/images/2022/NCF/t1.png"><img src="/images/2022/NCF/t1.png" width="600"  ></a>
+  </figure>
+</div>
 
 - $p_u$ : user latent vector
 - $q_i$ : item latent vector
 
 > MF models the two-way interaction of user and item latent factors, assuming each dimension of the latent space is independent of each other and linearly combining them with the same weight.
->
+
 - MF는 **user latent vector**와 **item latent vector**의 inner product를 통해 interaction을 modeling한다. 각 latent space는 서로 독립적이며, 같은 weight로 linearly combining한다.
 
 ### Matrix Factorization's limit
 
-![Untitled](/images/2022/NCF/t2.png)
+<div class="center">
+  <figure>
+    <a href="/images/2022/NCF/t2.png"><img src="/images/2022/NCF/t2.png" width="600"  ></a>
+  </figure>
+</div>
 
 - 본 논문에서는 [Jaccard coefficient](https://www.notion.so/Similarity-28496d0e6cbd4f70b3ce053cc2b08e76)를 활용하여 MF의 한계를 설명한다.
 
@@ -92,7 +100,7 @@ $s_{41}(0.6) > s_{43}(0.4) > s_{42}(0.2)$
 user 4를 user 1과 가장 유사하면서 user 3보다 user 2가 덜 유사한 $p_4$를 나타낼 수 없다. 이것은 즉, MF의 inner product 한계를 나타낸다. 이는 user와 item 사이의 complex interaction을 low dimensional latent space로 나타냈기 때문이다.
 
 > We note that one way to resolve the issue is to use a large number of latent factors K. However, it may adversely hurt the generalization of the model (e.g., overfitting the data), especially in sparse settings
->
+
 - 이를 해결하기 위해 latent factor의 dimension을 높일 수 있지만, 이는 generalization of the model을 저해하게 된다. 즉, 성능이 떨어질 수 있다.
 - 따라서 본 논문의 저자는 DNN을 이용해 해당 문제를 해결하고자 한다.
 
@@ -102,8 +110,11 @@ user-item interaction function을 학습하기 위해 NCF는 non-linearity(비�
 
 ## 3.1 General Framework
 
-![Untitled](/images/2022/NCF/t3.png)
-
+<div class="center">
+  <figure>
+    <a href="/images/2022/NCF/t3.png"><img src="/images/2022/NCF/t3.png" width="600"  ></a>
+  </figure>
+</div>
 - Input Layer (Sparse)
 
 input으로 각각 user와 item의 one-hot encoding을 한 vector를 사용한다. 이는 binarized sparse vector이다.
@@ -126,8 +137,11 @@ point-wise loss와 pair-wise loss(Bayesian Personalized Ranking, margin-based lo
 
 - NCF model
 
-![Untitled](/images/2022/NCF/t4.png)
-
+<div class="center">
+  <figure>
+    <a href="/images/2022/NCF/t4.png"><img src="/images/2022/NCF/t4.png" width="600"  ></a>
+  </figure>
+</div>
 $P$와 $Q$는 embedding layer의 Matrix $P\in \mathbb R^{M\times K}, Q\in \mathbb R^{N\times K}$이고, $\theta_{f}$는 interaction function $f$의 model parameter이다. function $f$은 multi-layer neural network이기에 표기하면 다음과 같다.
 
 ![Untitled](/images/2022/NCF/t5.png)
@@ -136,8 +150,11 @@ $P$와 $Q$는 embedding layer의 Matrix $P\in \mathbb R^{M\times K}, Q\in \mathb
 
 implicit data이기에 binary한 특징(bernoulli distribution)을 고려하여 Logistic이나 Probit function을 사용하여, $\hat{y}_{ui}$을 [0, 1]의 범위를 가지게 한다. 이에 따른 likelihood는 다음과 같다.
 
-![Untitled](/images/2022/NCF/t6.png)
-
+<div class="center">
+  <figure>
+    <a href="/images/2022/NCF/t6.png"><img src="/images/2022/NCF/t6.png" width="600"  ></a>
+  </figure>
+</div>
 이어 loss function은 아래와 같으며, binary cross-entropy loss를 사용하는 것을 알 수 있다. 해당 model은 $L$의 값을 최소화하는 파라미터를 찾게 된다.
 
 ![Untitled](/images/2022/NCF/t7.png)
@@ -152,14 +169,20 @@ optimizer로는 SGD를 사용하며, unobserved interaction에 대한 item을 ne
 
 latent vector $P^Tv^U_{u}, Q^Tv^I_{i}$를 각각 $p_u, q_i$라고 표현, $a_{out}$은 activation function을 의미하며, $h$는 output layer의 가중치를 의미한다. $\odot$은 element-wise product(Hadamard product)를 의미한다. output layer에 project하면 다음과 같다.
 
-![Untitled](/images/2022/NCF/t8.png)
-
+<div class="center">
+  <figure>
+    <a href="/images/2022/NCF/t8.png"><img src="/images/2022/NCF/t8.png" width="600"  ></a>
+  </figure>
+</div>
 $a_{out}$이 indentity function, $h$는 uniform vector라면, 기존의 MF와 동일하다. 본 논문에서는 $a_{out}$을 sigmoid function( $\sigma(x) = 1/(1+e^{-x})$ ), $h$를 log loss를 사용해 GMF를 학습하였다.
 
 ## 3.3 Multi-Layer Perceptron (MLP)
 
-![Untitled](/images/2022/NCF/t9.png)
-
+<div class="center">
+  <figure>
+    <a href="/images/2022/NCF/t9.png"><img src="/images/2022/NCF/t9.png" width="600"  ></a>
+  </figure>
+</div>
 $\phi_1$는 concatenate 함수, $W_x$는 weight matrix, $b_x$는 bias vector, $a_x$는 activation function을 의미한다.
 
 단순한 vector의 concatenation으로 user와 item 사이의 상호작용을 설명하지 않아, CF modeling의 효과를 주기에는 충분하지 않다. 이 때문에 MLP를 사용했다.
@@ -168,7 +191,11 @@ $\phi_1$는 concatenate 함수, $W_x$는 weight matrix, $b_x$는 bias vector, $a
 
 NCF framework를 기반으로 한 GMF와 MLP를 fuse한 것이 Neural Matrix Factorization(NeuMF)이다.
 
-![Untitled](/images/2022/NCF/t10.png)
+<div class="center">
+  <figure>
+    <a href="/images/2022/NCF/t10.png"><img src="/images/2022/NCF/t10.png" width="600"  ></a>
+  </figure>
+</div>
 
 - GMF Layer는 user와 item vector간의 element-wise product를 진행하여, latent feature interaction을 위해 linear kernel을 apply.
 - MLP Layer X는 user와 item vector를 concatenate하여 hidden layer(MLP Layer i)를 진행한다. data에서 interaction function을 학습하기 위해 non-linear kernel을 apply.
