@@ -12,7 +12,9 @@ use_math: true
 
 
 > 🧠 2017년 WWW에 발표된 'Neural Collaborative Filtering' 논문 요약 정리 및 코드 구현입니다.
+>
 > [Neural Collaborative Filtering Paper](https://arxiv.org/abs/1708.05031)
+>
 > [NCF Repository](https://github.com/IkGyu-Lee/NCF)
 
 
