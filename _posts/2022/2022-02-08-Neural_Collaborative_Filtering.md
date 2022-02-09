@@ -1,7 +1,7 @@
 ---
 title: Neural Collaborative Filtering
 layout: post
-Created: January 26, 2022 12:23 PM
+Created: January 1, 2022 6:28 PM
 tags:
     - Paper
     - Recommendation System
@@ -15,6 +15,7 @@ use_math: true
 🧠 2017년 WWW에 발표된 'Neural Collaborative Filtering' 논문 요약 정리 및 코드 구현입니다.
 ```
 [[WWW 2017] Neural Collaborative Filtering Paper](https://arxiv.org/abs/1708.05031)
+
 [NCF repository](https://github.com/IkGyu-Lee/NCF)
 
 
