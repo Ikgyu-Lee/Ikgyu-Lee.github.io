@@ -24,6 +24,7 @@ use_math: true
 >
 > To supercharge NCF modelling with non-linearities, we propose to leverage a multi-layer perceptron to learn the user–item interaction function
 
+
 - MF의 내적을 대체하는 용도로 Neural Architecture을 제안한다.
 - supercharge을 위해 MLP를 활용한다.
 
