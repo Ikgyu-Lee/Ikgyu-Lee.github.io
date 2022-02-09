@@ -12,8 +12,8 @@ use_math: true
 
 
 > 🧠 2017년 WWW에 발표된 'Neural Collaborative Filtering' 논문 요약 정리 및 코드 구현입니다.
-[Neural Collaborative Filtering Paper](https://arxiv.org/abs/1708.05031)
-[NCF Repository](https://github.com/IkGyu-Lee/NCF)
+> [Neural Collaborative Filtering Paper](https://arxiv.org/abs/1708.05031)
+> [NCF Repository](https://github.com/IkGyu-Lee/NCF)
 
 
 
@@ -33,9 +33,11 @@ use_math: true
 >
 > The inner product, which simply combines the multiplication of latent features linearly, may not be sufficient to capture the complex structure of user interaction data.
 
+
 - MF를 개선시키기 위해 다양한 논문들이 나왔지만, MF가 사용하는 내적의 특성상 단순한 선택으로 성능을 저해시키며, 복잡한 구조에 충족되기 어렵다.
 
 > We focus on [implicit feedback](https://www.notion.so/Explicit-vs-Implicit-Feedback-Data-9b2eac5db6ee442ba75d81e17fd47828)
+
 
 - 해당 논문은 user가 직접(explicit) 평가하는 data가 아닌, implicit data에 중점을 둔다.
 
