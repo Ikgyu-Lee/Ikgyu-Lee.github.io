@@ -1,15 +1,19 @@
-# [2010] The YouTube Video Recommendation System
-
-Last edited time: January 18, 2022 8:18 PM
+---
+title: The YouTube Video Recommendation System
+layout: post
 Created: January 10, 2022 2:31 PM
-Tags: Recommendation System
+tags:
+    - Paper
+    - Recommendation System
+use_math: true
 
-<aside>
-🧠 2010년 'The YouTube Video Recommendation System' paper 요약 정리입니다.
+---
 
-[YouTube video Recommendation System 2010.pdf](%5B2010%5D%20The%20YouTube%20Video%20Recommendation%20System%2049e2dc940ac54ead9fbfb8ad6bad0817/YouTube_video_Recommendation_System_2010.pdf)
 
-</aside>
+> 🧠 2010년 'The YouTube Video Recommendation System' paper 요약 정리입니다.
+>
+> [YouTube video Recommendation System 2010 Paper](https://www.inf.unibz.it/~ricci/ISR/papers/p293-davidson.pdf)
+
 
 # 1. Abstract & Introduction
 
@@ -58,7 +62,7 @@ Tags: Recommendation System
 > In order to compute the mapping we make use of a well-known technique known as [association rule mining](https://www.notion.so/Association-Rule-0ec7db6849034609a8efb935991243a3) [1] or co-visitation counts
 >
 
-![Untitled](%5B2010%5D%20The%20YouTube%20Video%20Recommendation%20System%2049e2dc940ac54ead9fbfb8ad6bad0817/Untitled.png)
+![Untitled](/images/2022/YouTube_RecSys_2010/t0.png)
 
 $c_i,c_j$는 video $v_i,v_j$의 전체 발생한 세션수이고, $f(v_i,v_j)$는  두 video의 global popularity를 고려한 normalization function. 쉬운 예시로 $f(v_i,v_j)=c_i\cdot c_j$
 
