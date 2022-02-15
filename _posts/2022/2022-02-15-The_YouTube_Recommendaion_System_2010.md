@@ -62,7 +62,11 @@ use_math: true
 > In order to compute the mapping we make use of a well-known technique known as [association rule mining](https://www.notion.so/Association-Rule-0ec7db6849034609a8efb935991243a3) [1] or co-visitation counts
 >
 
-![Untitled](/images/2022/Youtube_RecSys_2010/t0.png)
+<div class="center">
+  <figure>
+    <a href="/images/2022/Youtube_RecSys_2010/t0.png"><img src="/images/2022/Youtube_RecSys_2010/t0.png" width="600"  ></a>
+  </figure>
+</div>
 
 $c_i,c_j$는 video $v_i,v_j$의 전체 발생한 세션수이고, $f(v_i,v_j)$는  두 video의 global popularity를 고려한 normalization function. 쉬운 예시로 $f(v_i,v_j)=c_i\cdot c_j$
 
