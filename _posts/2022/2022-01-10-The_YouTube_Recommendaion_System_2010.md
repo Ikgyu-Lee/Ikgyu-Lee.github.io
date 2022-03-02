@@ -3,8 +3,8 @@ title: The YouTube Video Recommendation System
 layout: post
 Created: January 10, 2022 2:31 PM
 tags:
-    - Paper
     - Recommendation System
+    - Paper
 use_math: true
 comments: true
 

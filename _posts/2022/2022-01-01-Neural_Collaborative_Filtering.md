@@ -3,8 +3,8 @@ title: Neural Collaborative Filtering
 layout: post
 Created: January 1, 2022 6:28 PM
 tags:
-    - Paper
     - Recommendation System
+    - Paper
 use_math: true
 comments: true
 
