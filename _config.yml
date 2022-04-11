@@ -1,10 +1,10 @@
-name: IkGyu-Lee's Blog
+name: Ikgyu-Lee's Blog
 url: 'https://ikgyu-lee.github.io/'
 description: 'notes and thoughts'
 
 exclude: [Gemfile, Gemfile.lock, README.md]
 
-author: 'IkGyu-Lee'
+author: 'Ikgyu-Lee'
 disqus_shortname: Lee
 
 future: true
